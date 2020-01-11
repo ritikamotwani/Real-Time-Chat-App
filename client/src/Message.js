@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { graphql, compose } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import {flowRight as compose} from 'lodash';
 import TextField from '@material-ui/core/TextField';
 import moment from 'moment';
 import {

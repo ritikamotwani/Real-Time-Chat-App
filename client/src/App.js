@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import User from './User';
 import Message from './Message';
 import Registration from './Frontpage';
-import { graphql, compose } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import {flowRight as compose} from 'lodash';
 import {
   UserQuery,
   CreateUserMutation,
