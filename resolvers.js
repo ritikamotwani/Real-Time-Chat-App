@@ -45,5 +45,34 @@ const resolvers = {
           return true;
       },
 
+      createMessage: async (
+          _,
+          { senderMail, receiverMail, message, timestamp }
+      ) => {
+          const userText = new Message({
+              senderMail,
+              receiverMail,
+              message,
+              timestamp
+          });
+          await userText.save();
+          pubsub.publish("newMessage", {
+              newMessage: userText,
+              receiverMail: receiverMail
+          });
+          return userText;
+      },
+      updateMessage: async (_, { id, message }) => {
+          const userText = await Message.findOneAndUpdate(
+              { _id: id },
+              { message },
+              { new: true }
+          );
+          return userText;
+      },
+      deleteMessage: async (_, { id }) => {
+          await Message.findOneAndDelete({ _id: id });
+          return true;
+      }
   }
 };
