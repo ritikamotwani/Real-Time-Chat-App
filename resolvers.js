@@ -31,5 +31,13 @@ const resolvers = {
           );
           return user;
       },
+      deleteUser: async(_, { email }) => {
+          await Promise.all([
+              User.findOneAndDelete({ email: email }),
+              Message.deleteMany({ senderEmail: email })
+          ]);
+          pubsub.publish("oldUser", { oldUser: email });
+          return true;
+      },
   }
 };
