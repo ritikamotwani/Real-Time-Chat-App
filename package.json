@@ -1,0 +1,24 @@
+{
+  "name": "Real-Time-Chat-App",
+  "version": "1.0.0",
+  "description": "Real time chat application allowing users to login, chat with active users and get notifications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ritikamotwani/Real-Time-Chat-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ritikamotwani/Real-Time-Chat-App/issues"
+  },
+  "homepage": "https://github.com/ritikamotwani/Real-Time-Chat-App#readme",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3",
+    "mongoose": "^5.8.6"
+  }
+}
