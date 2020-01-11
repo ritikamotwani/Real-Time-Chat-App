@@ -36,6 +36,7 @@ const client = new ApolloClient({
     cache: new InMemoryCache()
 });
 
+//client provided everywhere
 ReactDOM.render(
 <ApolloProvider client={client}>
     <App />
