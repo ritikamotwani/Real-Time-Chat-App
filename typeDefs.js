@@ -34,3 +34,5 @@ const typeDefs = `
         oldUser: String
     }
 `;
+
+module.exports = typeDefs;

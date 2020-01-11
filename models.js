@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const User = mongoose.model("User", {
     name: {
         type: String,
@@ -16,3 +18,5 @@ const Message = mongoose.model("Message", {
     receiverMail: String,
     timestamp: Number
 });
+
+module.exports = { User, Message };
