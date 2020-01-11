@@ -20,5 +20,8 @@
   "dependencies": {
     "graphql-yoga": "^1.18.3",
     "mongoose": "^5.8.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
