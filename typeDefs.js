@@ -27,4 +27,10 @@ const typeDefs = `
         updateMessage(id: ID! message: String!): Message!
         deleteMessage(id: String!): Boolean!
     }
+    type Subscription {
+        newMessage(receiverMail: String!): Message
+        userTyping (receiverMail: String!): String
+        newUser: User
+        oldUser: String
+    }
 `;
