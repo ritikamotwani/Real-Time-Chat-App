@@ -74,5 +74,37 @@ const resolvers = {
           await Message.findOneAndDelete({ _id: id });
           return true;
       }
+  },
+  Subscription: {
+      newMessage: {
+          subscribe: withFilter(
+              () => pubsub.asyncIterator("newMessage"),
+              (payload, variables) => {
+                  return payload.receiverMail === variables.receiverMail;
+              }
+          )
+      },
+      newUser: {
+          subscribe: (_, {}, { pubsub }) => {
+              return pubsub.asyncIterator("newUser");
+          }
+      },
+      oldUser: {
+          subscribe: (_, {}, { pubsub }) => {
+              return pubsub.asyncIterator("oldUser");
+          }
+      },
+      userTyping: {
+          subscribe: withFilter(
+              () => pubsub.asyncIterator("userTyping"),
+              (payload, variables) => {
+                  return payload.receiverMail === variables.receiverMail;
+              }
+          )
+      }
   }
 };
+
+const pubsub = new PubSub();
+
+module.exports = resolvers;
