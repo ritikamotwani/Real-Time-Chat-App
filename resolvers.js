@@ -39,5 +39,11 @@ const resolvers = {
           pubsub.publish("oldUser", { oldUser: email });
           return true;
       },
+
+      userTyping: (_, { email, receiverMail }) => {
+          pubsub.publish("userTyping", { userTyping: email, receiverMail });
+          return true;
+      },
+
   }
 };
